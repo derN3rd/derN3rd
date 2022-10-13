@@ -12,30 +12,16 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Current year calendar
+      - name: Generate Metrics SVG
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.plugin.calendar.svg
+          filename: metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
+          base: "header,activity,community"
+          repositories_affiliations: "owner,organization_member"
           plugin_calendar: yes
-      - name: Recent activity charts
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.plugin.habits.charts.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
-          plugin_habits: yes
-          plugin_habits_facts: no
-          plugin_habits_charts: yes
-          config_timezone: Europe/Berlin
-      - name: Mildly interesting facts
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.plugin.habits.facts.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
           plugin_habits: yes
           plugin_habits_facts: yes
-          plugin_habits_charts: no
+          plugin_habits_charts: yes
+          config_display: columns
           config_timezone: Europe/Berlin
