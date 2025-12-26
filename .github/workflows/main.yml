@@ -25,3 +25,5 @@ jobs:
           plugin_habits_charts: yes
           config_display: columns
           config_timezone: Europe/Berlin
+          debug: yes
+          debug_print: yes
